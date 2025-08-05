@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>NetBramha</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.png" />
+        <script data-search-pseudo-elements="" defer="" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/js/all.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <style>
+    #score-container {
+     
+      margin: auto;
+      text-align: center;
+    
+    }
+    canvas {
+      max-width: 100%;
+    }
+    #needle {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+    </head>
+    <body class="nav-fixed">
+        <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
+            <!-- Sidenav Toggle Button-->
+            <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+           
+           
+            <!-- Navbar Search Input-->
+          
+            <!-- Navbar Items-->
+            <ul class="navbar-nav align-items-center ms-auto">
+                <!-- Documentation Dropdown-->
+
+                <li class="nav-item  no-caret d-none d-md-block me-3">
+                    <a class="nav-link" href="javascript:void(0);">
+                        <i class="fas fa-question dropdown-arrow"></i>
+                        <div class="fw-500">How it works</div>                       
+                    </a>                   
+                </li>
+                 <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
+                    <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
+                        
+                       
+                        <a class="dropdown-item" href="#!">
+                            <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
+                            Account
+                        </a>
+                        <a class="dropdown-item" href="#!">
+                            <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown no-caret d-none d-md-block me-3">
+                    <a class="nav-link" href="javascript:void(0);">
+                        <i class="fas fa-user dropdown-arrow"></i>
+                        <div class="fw-500">My Account</div>                       
+                    </a>                   
+                </li>
+
+                <li class="nav-item dropdown no-caret  d-md-block me-3">
+                    <a class="nav-link" href="javascript:void(0);">
+                        <i class="fas fa-logout dropdown-arrow"></i>
+                        <div class="fw-500">Logout</div>                       
+                    </a>                   
+                </li>
+            
+               
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sidenav shadow-right">
+                    <div class="sidenav-menu">
+
+                         <a class="navbar-brand pe-3 py-4 ps-4 ps-lg-2 text-white d-block" href="index.html">NetBramha</a>
+                        <div class="nav accordion" id="accordionSidenav">
+                           
+                          
+                            
+                            <!-- Sidenav Accordion (Dashboard)-->
+                            <a class="nav-link" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="true" aria-controls="collapseDashboards">
+                                <div class="nav-link-icon"><i data-feather="home"></i></div>
+                                Overview
+                                <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse show pb-3" id="collapseDashboards" data-bs-parent="#accordionSidenav">
+                                <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">
+                                    <a class="nav-link" href="">Score & Report</a>
+                                    <a class="nav-link" href="">Summary</a>
+                                    <a class="nav-link" href="">History</a>
+                                    <a class="nav-link" href="">Where You Stand</a>
+                                </nav>
+                            </div>                 
+                           
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Your Reports
+                            </a>
+                            
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Alerts
+                            </a>
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Simulator
+                            </a>
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Education
+                            </a>
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Upgrade My Plan
+                            </a>
+                            <a class="nav-link" href="">
+                                <div class="nav-link-icon"></div>
+                                Rewards Program
+                            </a>
+                        </div>
+                    </div>
+                    
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <!-- Main page content-->
+                    <div class="container-xl px-4 mt-5">
+                       
+                        
+                        <div class="row">
+                         <div class="row g-4">
+    <!-- Score Card -->
+    <div class="col-md-6">
+      <div class="card card-custom p-4 text-center">
+        <h5>Hello, Rahul L.</h5>
+        <div style="position: relative;">
+    <canvas id="gaugeChart" width="300" height="150"></canvas>
+    <canvas id="needle" width="300" height="150"></canvas>
+  </div>
+        <div class="score-number" id="scoreValue">767</div>
+        <p>is your NB Score as of 19th Apr '22</p>
+        <div class="d-flex justify-content-center gap-3">
+          <a href="#" class="text-primary text-decoration-underline">Score Analysis</a>
+          <button class="btn btn-warning text-dark">Refresh Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Card -->
+    <div class="col-md-6">
+      <div class="card card-custom p-4 mb-3">
+        <h6 class="text-primary">NB REPORT</h6>
+        <p>Get your personalized NB Report to plan your financial future.</p>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-decoration-underline">👁 View Your NB Report</a></li>
+          <li><a href="#" class="text-decoration-underline">📄 Download Your NB Report With Summary</a></li>
+        </ul>
+      </div>
+      <div class="card card-custom p-3 bg-warning-subtle">
+        <p class="mb-0 text-dark">
+          You currently have an active subscription. You will be able to access Free Annual NB Score & Report after the subscription period expires.
+        </p>
+      </div>
+    </div>
+  </div>   
+                           
+                           
+                           
+                        </div>
+                       <div class="row g-4">
+    <!-- Left Box -->
+    <div class="col-lg-8">
+      <div class="card p-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h5 class="mb-0">Your Accounts <i class="bi bi-info-circle"></i></h5>
+          <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="all-tab" data-bs-toggle="tab" type="button" role="tab">All</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="open-tab" data-bs-toggle="tab" type="button" role="tab">Open</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="closed-tab" data-bs-toggle="tab" type="button" role="tab">Closed</button>
+            </li>
+          </ul>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-md-5 text-center">
+            <canvas id="accountChart" width="180" height="180"></canvas>
+           
+          </div>
+          <div class="col-md-7">
+            <ul class="list-unstyled mb-0 fs-6">
+              <li><span class="legend-dot" style="background-color:#6f42c1;"></span> Closed credit cards <span class="float-end">4</span></li>
+              <li><span class="legend-dot" style="background-color:#ffc107;"></span> Closed loans <span class="float-end">1</span></li>
+              <li><span class="legend-dot" style="background-color:#0dcaf0;"></span> Open credit cards <span class="float-end">2</span></li>
+              <li><span class="legend-dot" style="background-color:#198754;"></span> Open loans <span class="float-end">6</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Box -->
+    <div class="col-lg-4">
+      <div class="d-flex flex-column gap-4">
+        <div class="card p-3">
+          <div class="d-flex align-items-center">
+            <div class="bg-info text-white rounded-start py-3 px-3 me-3">
+              <i class="bi bi-exclamation-triangle-fill fs-3"></i>
+            </div>
+            <div>
+              <h6 class="text-primary mb-1">Total Disputes</h6>
+              <h3 class="mb-1">12</h3>
+              <p class="mb-0 small">Learn more about credit reporting and related policies. <a href="#" class="text-decoration-none">Read More</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="card p-3">
+          <div class="d-flex align-items-center">
+            <div class="bg-info text-white rounded-start py-3 px-3 me-3">
+              <i class="bi bi-search fs-3"></i>
+            </div>
+            <div>
+              <h6 class="text-primary mb-1">Total Enquiries</h6>
+              <h3 class="mb-0">05</h3>
+              <p class="small mb-0">(In last 3 years)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end-row-->
+
+<div class="row g-4">
+    <div class="col-lg-9">
+      <div class="card p-4">
+        <h5 class="mb-3">NB Score History</h5>
+        <p class="text-muted mb-4">Trended view of the changes in your NB Score with every refresh.</p>
+        <div id="chart"></div>
+      </div>
+
+    </div>
+    <div class="col-lg-3">
+      <div class="card p-4">
+       <div class="stats-box shadow-sm">
+  <h6 class="mb-2 border-bottom pb-1">August 2022</h6>
+  <div class="scrollable-content">
+    <div class="stats-item">
+      <div class="stats-value">
+        <i class="fas fa-arrow-up"></i> 493
+      </div>
+      <div class="stats-date">18/08/2022</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-value">
+        <i class="fas fa-arrow-down"></i> 490
+      </div>
+      <div class="stats-date">16/08/2022</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-value">
+        <i class="fas fa-arrow-up"></i> 510
+      </div>
+      <div class="stats-date">14/08/2022</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-value">
+        <i class="fas fa-arrow-right"></i> 509
+      </div>
+      <div class="stats-date">12/08/2022</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-value stats-no-value">N/H</div>
+      <div class="stats-date">09/08/2022</div>
+    </div>
+  </div>
+</div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="row g-4">
+
+    <h5 class="text-primary mb-4">WHERE YOU STAND</h5>
+
+    <!-- Percentage Row -->
+    <div class="score-percent" id="score-percent"></div>
+
+    <!-- Score Bar -->
+    <div class="score-bar" id="score-bar">
+      <!-- segments will be injected -->
+      <div class="arrow" id="score-arrow"></div>
+    </div>
+
+    <!-- Score Label and Value -->
+    <div class="score-value">
+      <p>Your NB Score</p>
+      <h2 id="score-value">0</h2>
+    </div>
+
+    <!-- Score Ranges -->
+    <div class="score-range" id="score-range"></div>
+ 
+    </div>    
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+<!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-2">&copy; Copyright 2025 NetBramha Studio LLP. All Rights Reserved.</p>
+      <div class="footer-links d-flex flex-wrap justify-content-center">
+        <a href="#">FAQs</a>
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Raise a Dispute</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+                </main>
+            </div>
+        </div>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+       
+      <!-- Chart Script -->
+<script>
+ const gaugeChart = document.getElementById('gaugeChart').getContext('2d');
+const needleCanvas = document.getElementById('needle');
+const ctx = needleCanvas.getContext('2d');
+
+// Chart Data
+const data = {
+  labels: ['Poor', 'Average', 'Good', 'Excellent'],
+  datasets: [{
+    data: [300-500, 500-600, 700-800, 800-900],
+    backgroundColor: ['#d9534f', '#f0ad4e', '#f9e79f', '#5cb85c'],
+    borderWidth: 0,
+    cutout: '70%',
+    circumference: 180,
+    rotation: 270
+  }]
+};
+
+// Chart Configuration
+const config = {
+  type: 'doughnut',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } }
+  }
+};
+
+new Chart(gaugeChart, config);
+
+// Needle Drawing Function
+function drawNeedle(score) {
+  const centerX = 150;
+  const centerY = 150;
+  const radius = 70;
+
+  const percentage = (score - 300) / 600;
+  const angle = Math.PI * (1 - percentage);
+
+  ctx.clearRect(0, 0, 300, 150);
+
+  const needleLength = 70;
+  const needleWidth = 6;
+
+  const tipX = centerX + needleLength * Math.cos(angle);
+  const tipY = centerY - needleLength * Math.sin(angle);
+
+  const leftX = centerX + needleWidth * Math.cos(angle + Math.PI / 2);
+  const leftY = centerY - needleWidth * Math.sin(angle + Math.PI / 2);
+
+  const rightX = centerX + needleWidth * Math.cos(angle - Math.PI / 2);
+  const rightY = centerY - needleWidth * Math.sin(angle - Math.PI / 2);
+
+  // Draw needle (triangle)
+  ctx.beginPath();
+  ctx.moveTo(tipX, tipY);
+  ctx.lineTo(leftX, leftY);
+  ctx.lineTo(rightX, rightY);
+  ctx.closePath();
+  ctx.fillStyle = '#000';
+  ctx.fill();
+
+  // Draw knob
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, 6, 0, 2 * Math.PI);
+  ctx.fillStyle = '#000';
+  ctx.fill();
+}
+
+drawNeedle(767); // Set score here
+
+</script>
+<script>
+  const accountChartCtx = document.getElementById('accountChart').getContext('2d');
+
+  const centerTextPlugin = {
+    id: 'centerText',
+    beforeDraw(chart) {
+      const { width, height } = chart;
+      const ctx = chart.ctx;
+      ctx.save();
+
+      // Base settings
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      // "Total" line
+      ctx.fillStyle = '#333';
+      ctx.font = 'bold 14px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Total', centerX, centerY - 25);
+
+      // "Accounts" line
+      ctx.font = 'bold 14px sans-serif';
+      ctx.fillText('Accounts', centerX, centerY - 10);
+
+      // "13" number
+      ctx.fillStyle = '#000';
+      ctx.font = 'bold 24px sans-serif';
+      ctx.fillText('13', centerX, centerY + 15);
+
+      ctx.restore();
+    }
+  };
+
+  new Chart(accountChartCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Closed credit cards', 'Closed loans', 'Open credit cards', 'Open loans'],
+      datasets: [{
+        data: [4, 1, 2, 6],
+        backgroundColor: ['#6f42c1', '#ffc107', '#0dcaf0', '#198754'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      cutout: '70%',
+      plugins: {
+        legend: { display: false }
+      }
+    },
+    plugins: [centerTextPlugin]
+  });
+</script>
+
+  <script>
+  const chartOptions = {
+    chart: {
+      type: 'line',
+      height: 400,
+      toolbar: { show: false },
+      zoom: { enabled: false }
+    },
+    series: [{
+      name: 'NB Score',
+      data: [
+        { x: 'JAN', y: null },
+        { x: 'FEB', y: null },
+        { x: 'MAR', y: null },
+        { x: 'APR', y: 520 },
+        { x: 'MAY', y: 580 },
+        { x: 'JUN', y: 493 },
+        // Removed JUL so line connects JUN to AUG
+        { x: 'AUG', y: 510 },
+        { x: 'SEP', y: null },
+        { x: 'OCT', y: null },
+        { x: 'NOV', y: null },
+        { x: 'DEC', y: null }
+      ]
+    }],
+    stroke: {
+      curve: 'smooth',
+      width: 3,
+      colors: ['#00A6ED']
+    },
+    markers: {
+      size: 6,
+      colors: ['#00A6ED'],
+      strokeColor: '#fff',
+      strokeWidth: 2,
+      hover: { size: 8 }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val, { dataPointIndex, w }) {
+        const labelMap = {
+          3: '520+',
+          4: '580+',
+          5: '493+',
+          6: '510→' // AUG is index 6 now after JUL removed
+        };
+        return labelMap[dataPointIndex] || '';
+      },
+      offsetY: -10,
+      style: {
+        fontSize: '12px',
+        colors: ['#00A6ED'],
+        fontWeight: 600
+      }
+    },
+    xaxis: {
+      type: 'category',
+      categories: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+      labels: {
+        style: {
+          fontWeight: 500
+        }
+      }
+    },
+    yaxis: {
+      min: 300,
+      max: 900,
+      tickAmount: 6,
+      labels: {
+        style: {
+          fontWeight: 500
+        }
+      }
+    },
+    tooltip: {
+      y: {
+        formatter: val => `Score: ${val}`
+      }
+    },
+    grid: {
+      strokeDashArray: 4,
+      xaxis: {
+        lines: { show: true }
+      },
+      yaxis: {
+        lines: { show: true }
+      }
+    }
+  };
+
+  const chart = new ApexCharts(document.querySelector("#chart"), chartOptions);
+  chart.render();
+</script>  
+
+
+
+  <script>
+    const ranges = [
+      { min: 300, max: 722, percent: 15, color: 's1' },
+      { min: 723, max: 747, percent: 22, color: 's2' },
+      { min: 748, max: 764, percent: 26, color: 's3' },
+      { min: 765, max: 777, percent: 18, color: 's4' },
+      { min: 778, max: 900, percent: 20, color: 's5' }
+    ];
+
+    const userScore = 850; // 🔁 Make this dynamic via input/API
+    const totalWidth = 100; // represents 100%
+
+    // Inject segments
+    const bar = document.getElementById('score-bar');
+    const percentRow = document.getElementById('score-percent');
+    const rangeRow = document.getElementById('score-range');
+
+    let cumulativePercent = 0;
+    let arrowPositionPercent = 0;
+
+    ranges.forEach((range, index) => {
+      // Segment
+      const seg = document.createElement('div');
+      seg.className = `segment ${range.color}`;
+      seg.style.width = `${range.percent}%`;
+      bar.appendChild(seg);
+
+      // Percentage label
+      const percent = document.createElement('div');
+      percent.style.width = `${range.percent}%`;
+      percent.style.textAlign = 'center';
+      percent.innerText = `${range.percent}%`;
+      percentRow.appendChild(percent);
+
+      // Score Range label
+      const rangeLabel = document.createElement('div');
+      rangeLabel.style.width = `${range.percent}%`;
+      rangeLabel.style.textAlign = 'center';
+      rangeLabel.innerText = `${range.min}-${range.max}`;
+      rangeRow.appendChild(rangeLabel);
+
+      // Arrow position calculation
+      if (userScore >= range.min && userScore <= range.max) {
+        const rangeSpan = range.max - range.min;
+        const scoreInRange = userScore - range.min;
+        const percentInRange = (scoreInRange / rangeSpan) * range.percent;
+        arrowPositionPercent = cumulativePercent + percentInRange;
+      }
+
+      cumulativePercent += range.percent;
+    });
+
+    // Move arrow
+    const arrow = document.getElementById('score-arrow');
+    arrow.style.left = `${arrowPositionPercent}%`;
+
+    // Update score value
+    document.getElementById('score-value').innerText = userScore;
+  </script>
+
+</body>
+</html>

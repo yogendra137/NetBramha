@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NB Score History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .card-title {
+      font-weight: 700;
+      color: #0062cc;
+    }
+    .chart-container {
+      position: relative;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card shadow-sm bg-white">
+  <h5 class="card-title">NB SCORE HISTORY</h5>
+  <p class="text-muted mb-4">Trended view of the changes in your NB Score with every refresh.</p>
+  <div class="chart-container">
+    <canvas id="nbScoreChart"></canvas>
+  </div>
+</div>
+
+<script>
+  const labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+  const dataPoints = [
+    { x: 'JAN', y: null },
+    { x: 'FEB', y: null },
+    { x: 'MAR', y: null },
+    { x: 'APR', y: 520 },
+    { x: 'MAY', y: 580 },
+    { x: 'JUN', y: 493 },
+    { x: 'JUL', y: null },
+    { x: 'AUG', y: 510 },
+    { x: 'SEP', y: null },
+    { x: 'OCT', y: null },
+    { x: 'NOV', y: null },
+    { x: 'DEC', y: null }
+  ];
+
+  const labelTexts = {
+    'APR': '520+',
+    'MAY': '580+',
+    'JUN': '493+',
+    'AUG': '510+'
+  };
+
+  const ctx = document.getElementById('nbScoreChart').getContext('2d');
+
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'NB Score',
+        data: dataPoints,
+        borderColor: '#00A6ED',
+        backgroundColor: '#00A6ED',
+        tension: 0.3,
+        spanGaps: true, // Fixes broken line
+        pointRadius: 6,
+        pointHoverRadius: 7,
+        pointBackgroundColor: '#00A6ED'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          callbacks: {
+            label: context => `Score: ${context.parsed.y}`
+          }
+        }
+      },
+      animation: {
+        onComplete: function () {
+          const chart = this.chart;
+          const ctx = chart.ctx;
+          ctx.save();
+          ctx.font = 'bold 12px Arial';
+          ctx.fillStyle = '#00A6ED';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'bottom';
+
+          const meta = chart.getDatasetMeta(0);
+          meta.data.forEach((point, index) => {
+            const label = chart.data.labels[index];
+            const value = labelTexts[label];
+            if (value && point.y !== null) {
+              ctx.fillText(value, point.x, point.y - 10);
+            }
+          });
+
+          ctx.restore();
+        }
+      },
+      scales: {
+        x: {
+          grid: {
+            display: false
+          }
+        },
+        y: {
+          min: 300,
+          max: 900,
+          ticks: {
+            stepSize: 100
+          },
+          grid: {
+            color: '#e0e0e0'
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
