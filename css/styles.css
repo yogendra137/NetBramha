@@ -56,7 +56,16 @@ body {
 .font-xl {
   font-size: var(--font-size-xl);
 }
-
+section {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+@media (max-width: 576px) {
+  section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
 /* ==============================
    Layout & Navigation
 ============================== */
@@ -244,6 +253,7 @@ body {
   font-size: 0.9rem;
 }
 
+
 /* ==============================
    Top Navigation
 ============================== */
@@ -345,13 +355,17 @@ body {
 }
 
 .sidenav .sidenav-menu .nav .nav-link {
-  display: flex;
-  align-items: center;
-  line-height: normal;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  position: relative;
-  color: #fff;
+    display: flex;
+    align-items: center;
+    line-height: normal;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    padding-left: 25px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .nav-link[aria-expanded="true"] {
@@ -369,8 +383,8 @@ body {
 }
 
 .sidenav .sidenav-menu .nav .nav-link .nav-link-icon .feather {
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .sidenav .sidenav-menu .nav .nav-link.active {
@@ -397,12 +411,13 @@ body {
 
 .sidenav .sidenav-menu .nav .sidenav-menu-nested {
   flex-direction: column;
-  margin-left: 1.4375rem;
+  margin-left: 2.1rem;
   border-left-style: solid;
-  border-left-width: thin;
+  border-left-width: medium;
   padding-left: 0.5625rem;
+  border-color: #008a00;
 }
-
+.sidenav .sidenav-menu .nav .sidenav-menu-nested  .nav-link {font-size: 14px; padding-left: 16px;}
 .navbar-nav .nav-item .nav-link {
   display: flex;
   align-items: center;
@@ -419,8 +434,15 @@ body {
   color: #333;
 }
 
-.score-board-body{position: relative; padding-bottom: 50px!important;}
-.score-board-result{position: absolute; bottom: 15px; width: calc(100% - 3rem);}
+.score-board-body {
+  position: relative;
+  padding-bottom: 50px !important;
+}
+.score-board-result {
+  position: absolute;
+  bottom: 15px;
+  width: calc(100% - 3rem);
+}
 
 .guage-chart-box {
   position: relative;
@@ -658,6 +680,14 @@ canvas {
   font-size: 36px;
 }
 
+.score-range-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 50%;
+  margin: 0 auto;
+}
+
 .score-range,
 .score-percent {
   display: flex;
@@ -672,9 +702,9 @@ canvas {
   /* Smooth rounded corners */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   /* Soft shadow */
-  padding: 20px;
+  padding: 25px;
 }
-
+.account-chart-legends{font-weight: bold;}
 .custom-tabs .nav-link {
   border: none;
   border-radius: 0.5rem;
@@ -751,6 +781,51 @@ canvas {
   font-weight: 500;
 }
 
+
+@media (max-width: 992px) {
+   .score-range-block {   
+    width: 100%;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .account-box{
+    padding: 15px;
+  }
+  .custom-tabs .nav-link {
+   
+    padding: 4px 12px;
+    
+}
+  .score-bar-box {
+    padding: 15px;
+  }
+  .score-bar {
+   
+    height: 45px;
+    
+    margin-top: -60px;
+  }
+  .score-bar-box-inner {
+    padding: 10px;
+  }
+ 
+  .score-range {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .percent-label {
+  
+    top: -26px;
+    font-size: 0.9rem;
+  
+   
+}
+}
 /* ==============================
    Stats Box
 ============================== */
@@ -850,6 +925,19 @@ canvas {
   border-radius: 0px;
   display: inline-block;
 }
+
+@media (max-width: 576px) {
+  .stats-box {
+    width: 100%;
+  }
+  .score-history-box {
+   
+    padding: 15px;
+   
+}
+}
+
+
 /* Footer */
 footer {
   border-top: 1px solid var(--color-border);
