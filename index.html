@@ -20,18 +20,22 @@
    <body class="nav-fixed">
       <nav class="topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="sidenavAccordion">
          <!-- Sidenav Toggle Button-->
-         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 me-2 ms-lg-2 me-lg-0" id="sidebarToggle"><i data-feather="menu"></i></button>
+        <div class="d-flex align-items-center">
+            <button class="btn btn-icon btn-transparent-dark me-2 ms-lg-2 me-lg-0 d-flex" id="sidebarToggle"><i data-feather="menu"></i></button>
+            <a class="navbar-brand-logo d-block d-lg-none" href="index.html"><img src="images/logo.png" alt="NetBramha"></a>
+        </div>
+         
         
          <ul class="navbar-nav align-items-center ms-auto">
             
             <li class="nav-item  no-caret d-none d-md-block me-3">
                <a class="nav-link" href="javascript:void(0);">
-                  <i class="fas fa-question dropdown-arrow"></i>
+                  <i class="fas fa-question text-primary-dark"></i>
                   <div class="fw-500">How it works</div>
                </a>
             </li>
             <li class="nav-item dropdown no-caret dropdown-user me-3 me-lg-4">
-               <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English</a>
+               <a class="nav-link dropdown-toggle" id="navbarDropdownUserImage" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English <i class="fa fa-angle-down fa-sm"></i></a>
                <div class="dropdown-menu dropdown-menu-end language-dropdown border-0 shadow animated--fade-in-up" aria-labelledby="navbarDropdownUserImage">
                   <a class="dropdown-item" href="#!">
                      <div class="dropdown-item-icon">EN</div>
@@ -52,7 +56,7 @@
             <li class="nav-item dropdown no-caret  me-3">
                <a class="nav-link" href="javascript:void(0);">
                   <i data-feather="log-out"></i>
-                  <div class="fw-500">Logout</div>
+                  <div class="fw-500 d-none d-sm-block ">Logout</div>
                </a>
             </li>
          </ul>
@@ -61,7 +65,7 @@
          <div id="layoutSidenav_nav">
             <nav class="sidenav shadow-right">
                <div class="sidenav-menu">
-                  <a class="navbar-brand pe-3 py-4 ps-4 ps-lg-2 text-white d-block" href="index.html">NetBramha</a>
+                  <a class="navbar-brand brand-logo d-block" href="index.html"><img src="images/logo.png" alt="NetBramha"></a>
                   <div class="nav accordion" id="accordionSidenav">
                      <!-- Sidenav Accordion (Dashboard)-->
                      <a class="nav-link" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapseDashboards" aria-expanded="true" aria-controls="collapseDashboards">
@@ -83,7 +87,7 @@
                      </a>
                      <a class="nav-link" href="">
                         <div class="nav-link-icon"><i data-feather="bell"></i></div>
-                        Alerts
+                        Alerts <span class="badge badge-notifiaction bg-warning ms-2 fw-normal"> 4 </span>
                      </a>
                      <a class="nav-link" href="">
                         <div class="nav-link-icon"><i data-feather="pie-chart"></i></div>
@@ -112,7 +116,7 @@
                <div class="container-xl ">
                   <div class="row g-4">
                      <!-- Score Card -->
-                     <div class="col-md-6">
+                     <div class="col-lg-6">
                         <div class="score-board text-center">
                            <div class="score-board-body p-4 pt-0 text-center">
                               <h5 class="score-board-title fw-bold">Hello, Rahul L.</h5>
@@ -134,7 +138,7 @@
                         </div>
                      </div>
                      <!-- Report Card -->
-                     <div class="col-md-6">
+                     <div class="col-lg-6">
                         <!-- White Card -->
                         <div class="nb-report mb-4 ">
                            <div class="d-flex justify-content-between ">
@@ -143,14 +147,14 @@
                                  <p>Get your personalized NB Report to plan<br> your financial future.</p>
                                  <div class="mt-3">
                                     <p class="mb-2">
-                                       👁️ <a href="#" class="text-link ml-2"><span>View Your NB Report</span> <i class="fa-solid fa-angle-right text-primary"></i></a> 
+                                       <i data-feather="eye" class="fe-lg me-1"></i> <a href="#" class="text-link ml-2"><span>View Your NB Report</span> <i class="fa-solid fa-angle-right text-primary"></i></a> 
                                     </p>
                                     <p class="mb-0">
-                                       📄 <a href="#" class="text-link ml-2"><span>Download Your NB Report With Summary</span> <i class="fa-solid fa-angle-right text-primary"></i></a>
+                                       <i data-feather="file-plus"  class="fe-lg me-1"></i> <a href="#" class="text-link ml-2"><span>Download Your NB Report With Summary</span> <i class="fa-solid fa-angle-right text-primary"></i></a>
                                     </p>
                                  </div>
                               </div>
-                              <div class="d-none d-md-block">
+                              <div class="d-none d-md-block d-lg-none d-xl-block">
                                  <img src="images/nb-report.png" alt="report" width="120">
                               </div>
                            </div>
@@ -162,7 +166,7 @@
                                  You currently have an active subscription. <br>You will be able to access Free Annual NB Score & Report after the subscription period expires.
                               </p>
                            </div>
-                           <div class="d-none d-md-block">
+                           <div class="d-none d-md-block d-lg-none d-xl-block">
                               <img src="images/subscription.png" alt="subscription" width="180">
                            </div>
                         </div>
@@ -170,14 +174,14 @@
                   </div>
                </div>
                </section>
-               <section class="py-3">
+               <section class="pt-5 mt-3 pb-3">
                <div class="container-xl">
                   <div class="row g-4">
                      <!-- Left Box -->
-                     <div class="col-lg-8">
+                     <div class="col-xl-8 col-lg-12">
                         <div class="account-box">
                            <div class="d-flex justify-content-between align-items-center mb-3">
-                              <h5 class="text-primary fw-bold mb-0">Your Accounts <i class="bi bi-info-circle"></i></h5>
+                              <h5 class="text-primary fw-bold mb-0">Your Accounts <i data-feather="alert-circle"></i></h5>
                               <ul class="nav custom-tabs" id="myTab" role="tablist">
                                  <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">All</button>
@@ -230,7 +234,7 @@
                         </div>
                      </div>
                      <!-- Right Box -->
-                     <div class="col-lg-4">
+                     <div class="col-xl-4 col-lg-12">
                         <!-- Card 1 -->
                         <div class="info-box">
                            <div class="info-icon">
@@ -241,7 +245,7 @@
                                  <div class="info-title">Total Disputes</div>
                                  <div class="info-count">12</div>
                               </div>
-                              <div class="info-desc mt-1">Learn more about credit reporting and related policies.</div>
+                              <div class="info-desc mt-3">Learn more about credit reporting and related policies.</div>
                               <div><a href="#" class="info-link">Read More</a></div>
                            </div>
                         </div>
@@ -263,18 +267,18 @@
                   <!--end-row-->
                </div>
                </section>
-               <section class="py-3">
+               <section class="pt-5 pb-3">
                <div class="container-xl">
-                  <h5 class="text-primary fw-bold mb-3">NB SCORE HISTORY</h5>
+                  <h5 class="text-primary fw-bold mb-3">NB SCORE HISTORY <i data-feather="alert-circle"></i></h5>
                   <div class="score-history-box">
-                     <p class="mb-2">Trended view of the changes in your NB Score with every refresh.</p>
+                     <p class="mb-2 font-lg">Trended view of the changes in your NB Score with every refresh.</p>
                      <div class="row g-4">
-                        <div class="col-lg-9">
-                           <div class="">
+                        <div class="col-xl-9 col-lg-8 col-md-8">
+                           <div class="nb-score-chart">
                               <div id="chart"></div>
                            </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-xl-3 col-lg-4 col-md-4">
                            <div class="card p-2 border-0">
                               <div class="stats-box">
                                  <h6 class="mb-2 border-bottom-dark pb-2 fw-bold">August 2022</h6>
@@ -333,10 +337,11 @@
                   </div>
                </div>
                </section>
-               <section class="py-3">
+               <section class="pt-5 pb-3">
                <div class="container-xl">
-                  <div class="row g-4">
-                     <h5 class="text-primary mb-1 fw-bold">WHERE YOU STAND</h5>
+                <h5 class="text-primary mb-1 fw-bold mb-3">WHERE YOU STAND <i data-feather="alert-circle"></i></h5>
+                  <div class="">
+                     
                      <div class="score-bar-box">
                         <div class="score-bar-box-inner">
                            <!-- Percentage Row -->
@@ -357,7 +362,7 @@
                            <div class="score-range d-flex w-100" id="score-range"></div>
                            </div>
                         </div>
-                        <p class="text-center mt-3 mb-0">Your NB Score lies in the top 70% in all of India </p>
+                        <p class="font-lg text-center mt-3 mb-2">Your NB Score lies in the top 70% in all of India </p>
                         <p class="text-center mb-0">Based on the NB Data</p>
                      </div>
                   </div>
@@ -366,7 +371,7 @@
                <!-- Footer -->
                <footer class="text-center mt-4">
                   <div class="container">
-                     <p class="mb-2">&copy; Copyright 2025 NetBramha Studio LLP. All Rights Reserved.</p>
+                     <p class="mb-3">&copy; Copyright 2025 NetBramha Studio LLP. All Rights Reserved.</p>
                      <div class="footer-links d-flex flex-wrap justify-content-center">
                         <a href="#">FAQs</a>
                         <a href="#">Terms and Conditions</a>
@@ -471,17 +476,17 @@
          
                // "Total" line
                ctx.fillStyle = '#333';
-               ctx.font = 'bold 14px roboto';
+               ctx.font = '700 14px roboto';
                ctx.textAlign = 'center';
                ctx.fillText('Total', centerX, centerY - 25);
          
                // "Accounts" line
-               ctx.font = 'bold 14px roboto';
+               ctx.font = '700 14px roboto';
                ctx.fillText('Accounts', centerX, centerY - 10);
          
                // "13" number
                ctx.fillStyle = '#000';
-               ctx.font = 'bold 24px roboto';
+               ctx.font = '16px roboto';
                ctx.fillText('13', centerX, centerY + 15);
          
                ctx.restore();
