@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>amCharts 5 Gauge with Needle</title>
+  <style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
+
+  <!-- ✅ Load amCharts 5 (core + gauge + theme) -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/gauge.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+<body>
+
+<div id="chartdiv"></div>
+
+<script>
+am5.ready(function() {
+  // ✅ Root element
+  var root = am5.Root.new("chartdiv");
+
+  // ✅ Apply theme
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
+
+  // ✅ Create chart
+  var chart = root.container.children.push(
+    am5radar.RadialChart.new(root, {
+      startAngle: 180,
+      endAngle: 360,
+      innerRadius: am5.percent(60)
+    })
+  );
+
+  // ✅ Create axis
+  var axisRenderer = am5radar.AxisRendererCircular.new(root, {
+    innerRadius: -40
+  });
+
+  var xAxis = chart.xAxes.push(
+    am5xy.ValueAxis.new(root, {
+      min: 0,
+      max: 100,
+      strictMinMax: true,
+      renderer: axisRenderer
+    })
+  );
+
+  // ✅ Create colored ranges
+  function addRange(start, end, color) {
+    let dataItem = xAxis.makeDataItem({ value: start, endValue: end });
+    let range = xAxis.createAxisRange(dataItem);
+    range.get("axisFill").setAll({
+      visible: true,
+      fill: am5.color(color),
+      fillOpacity: 0.8
+    });
+  }
+
+  addRange(0, 40, "#FF4B4B");
+  addRange(40, 70, "#FFA500");
+  addRange(70, 100, "#4CAF50");
+
+  // ✅ Add needle hand
+  var hand = chart.hands.push(
+    am5radar.ClockHand.new(root, {
+      pinRadius: am5.percent(20),
+      radius: am5.percent(100),
+      bottomWidth: 10
+    })
+  );
+
+  // ✅ Animate needle
+  function updateNeedle(val) {
+    hand.animate({
+      key: "value",
+      to: val,
+      duration: 800,
+      easing: am5.ease.out(am5.ease.cubic)
+    });
+  }
+
+  // Initial value
+  updateNeedle(55);
+
+  // Change every 3 seconds
+  setInterval(() => {
+    updateNeedle(Math.floor(Math.random() * 100));
+  }, 3000);
+});
+</script>
+
+</body>
+</html>
