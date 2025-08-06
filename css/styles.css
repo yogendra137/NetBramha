@@ -71,10 +71,19 @@ section {
   padding-left: 30px;
   padding-right: 30px;
 }
+h5.text-primary {
+  font-size: 18px;
+}
 @media (max-width: 576px) {
   section {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .font-xl {
+    font-size: var(--font-size-lg);
   }
 }
 /* ==============================
@@ -609,7 +618,26 @@ section {
 .text-link:hover {
   text-decoration: underline;
 }
-
+@media (max-width: 480px) {
+  .card-footer-custom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    gap: 10px;
+  }
+  .nb-report {
+    padding: 15px;
+    font-size: 14px;
+  }
+  .yellow-box {
+    padding: 15px;
+  }
+  .nb-report p {
+    font-size: 14px;
+  }
+  .account-box .d-flex{flex-wrap:wrap; gap: 10px; justify-content: center!important;}
+}
 /* ==============================
    Stats & Charts
 ============================== */
@@ -1028,6 +1056,10 @@ footer {
 
 .footer-links a:hover {
   text-decoration: none;
+}
+
+@media (max-width:576px){
+  .footer-links{gap: 10px;}
 }
 
 .apexcharts-data-labels {
