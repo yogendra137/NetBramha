@@ -411,7 +411,9 @@ h5.text-primary {
   font-weight: 400;
   letter-spacing: 0.03125rem; /* 0.5px converted to rem */
 }
-
+.sidenav .sidenav-menu .nav .nav-link:hover{
+  color: var(--color-warning);
+}
 .accordion .nav-link[aria-expanded="true"] {
   background: var(--color-brand-dark);
 }
@@ -431,8 +433,12 @@ h5.text-primary {
   height: 1.2rem;
 }
 
-.sidenav .sidenav-menu .nav .nav-link.active {
-  font-weight: 600;
+.sidenav .sidenav-menu .nav .nav-link .nav-link-icon .feather {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.sidenav .sidenav-menu .nav .nav-link:hover .nav-link-icon .feather {
+  stroke: var(--color-warning);
 }
 
 .sidenav .sidenav-menu .nav .nav-link.active .nav-icon {
@@ -469,8 +475,12 @@ h5.text-primary {
 .navbar-nav .nav-item .nav-link {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   color: var(--color-black);
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: var(--color-primary);
 }
 
 .badge-notifiaction {
